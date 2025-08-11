@@ -1,0 +1,1 @@
+worker: python screenshot_script.py
