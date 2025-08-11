@@ -1,0 +1,9 @@
+# Archivo de configuración para Nixpacks
+
+[phases.setup]
+# Lista de paquetes a instalar usando el manejador de paquetes apt
+aptPkgs = ["google-chrome-stable", "chromedriver"]
+
+[start]
+# Comando para iniciar tu aplicación
+cmd = "python screenshot_script.py"
