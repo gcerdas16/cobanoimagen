@@ -1,22 +1,19 @@
-# Archivo de configuración para Nixpacks
+# nixpacks.toml
 
 [phases.setup]
-# Instala paquetes básicos necesarios para añadir el repositorio de Chrome
-aptPkgs = ["wget", "gnupg"]
-cmds = [
-    # 1. Añade la llave de seguridad de Google
-    "wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome-keyring.gpg",
-    
-    # 2. Añade el repositorio de Chrome a las fuentes del sistema
-    "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/google-chrome.list",
-    
-    # 3. Actualiza la lista de paquetes ahora que se añadió la nueva fuente
-    "apt-get update",
-    
-    # 4. Instala Google Chrome (ahora sí lo encontrará)
-    "apt-get install -y google-chrome-stable"
+# Lista de paquetes del sistema (dependencias) que Chrome necesita para correr.
+aptPkgs = [
+    "libgconf-2-4",
+    "libgdk-pixbuf2.0-0",
+    "libgtk-3-0",
+    "libnss3",
+    "libxss1",
+    "libasound2",
+    "libxtst6",
+    "libx11-xcb1",
+    "libglib2.0-0"
 ]
 
 [start]
-# El comando para iniciar tu aplicación
-cmd = "python screenshot_script.py"
+# Comando para iniciar tu aplicación.
+command = "python screenshot_script.py"
