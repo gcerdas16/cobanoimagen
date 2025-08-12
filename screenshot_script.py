@@ -62,7 +62,7 @@ def tomar_y_enviar_screenshot():
         play_button.click()
 
         print("Esperando a que el video cargue...")
-        time.sleep(5)
+        time.sleep(15)
 
         print("Tomando screenshot...")
         video_element_selector = (By.CSS_SELECTOR, "video[data-html5-video]")
